@@ -1,8 +1,11 @@
 To run the code for testing:
-[path_to_python]\pyrhon.exe game.py
+[path_to_python]\python.exe game.py
 
 Install Python:
-run python-2.7.16.msi
+run deps\python-2.7.16.msi
 
 Install PIP:
-[path_to_python]\python get_pip.py
+[path_to_python]\python deps\get_pip.py
+
+Install pyInstaller
+[path_to_python]\Scripts\pip.exe install pyInstaller
