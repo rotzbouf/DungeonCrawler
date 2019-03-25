@@ -1,0 +1,8 @@
+To run the code for testing:
+[path_to_python]\pyrhon.exe game.py
+
+Install Python:
+run python-2.7.16.msi
+
+Install PIP:
+[path_to_python]\python get_pip.py
