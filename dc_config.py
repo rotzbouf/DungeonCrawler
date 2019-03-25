@@ -35,8 +35,8 @@ FIREBALL_RADIUS = 3
 FIREBALL_DAMAGE = 25
  
 #experience and level-ups
-LEVEL_UP_BASE = 200
-LEVEL_UP_FACTOR = 150
+LEVEL_UP_BASE = 50 #200
+LEVEL_UP_FACTOR = 45 #150
  
 FOV_ALGO = 0  #default FOV algorithm
 FOV_LIGHT_WALLS = True  #light walls or not
