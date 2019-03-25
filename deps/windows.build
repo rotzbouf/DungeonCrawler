@@ -9,3 +9,7 @@ Install PIP (go inside the deps folder):
 
 Install pyInstaller:
 [path_to_python]\Scripts\pip.exe install pyInstaller
+
+Build EXE (from inside the project folder):
+[path_to_python]\Scripts\pyinstaller -F dungeon.py
+   - exe is in folder dist
