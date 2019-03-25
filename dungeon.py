@@ -1043,8 +1043,8 @@ def main_menu():
         #show the game's title, and some credits!
         libtcod.console_set_default_foreground(0, libtcod.light_yellow)
         libtcod.console_print_ex(0, cfg.SCREEN_WIDTH/2, cfg.SCREEN_HEIGHT/2-4, libtcod.BKGND_NONE, libtcod.CENTER,
-                                 'TOMBS OF THE ANCIENT KINGS')
-        libtcod.console_print_ex(0, cfg.SCREEN_WIDTH/2, cfg.SCREEN_HEIGHT-2, libtcod.BKGND_NONE, libtcod.CENTER, 'By Rotzbouf')
+                                 'ASCII DUNGEON HERO')
+        libtcod.console_print_ex(0, cfg.SCREEN_WIDTH/2, cfg.SCREEN_HEIGHT-2, libtcod.BKGND_NONE, libtcod.CENTER, 'by "Rotzbouf"')
  
         #show options and wait for the player's choice
         choice = menu('', ['Play a new game', 'Continue last game', 'Quit'], 24)
@@ -1062,8 +1062,8 @@ def main_menu():
         elif choice == 2:  #quit
             break
  
-libtcod.console_set_custom_font('arial10x10.png', libtcod.FONT_TYPE_GREYSCALE | libtcod.FONT_LAYOUT_TCOD)
-libtcod.console_init_root(cfg.SCREEN_WIDTH, cfg.SCREEN_HEIGHT, 'DungeonCrawler 0.1', False)
+libtcod.console_set_custom_font('arial12x12.png', libtcod.FONT_TYPE_GREYSCALE | libtcod.FONT_LAYOUT_TCOD)
+libtcod.console_init_root(cfg.SCREEN_WIDTH, cfg.SCREEN_HEIGHT, 'Ascii Dungeon Hero v0.2', False)
 libtcod.sys_set_fps(cfg.LIMIT_FPS)
 con = libtcod.console_new(cfg.MAP_WIDTH, cfg.MAP_HEIGHT)
 panel = libtcod.console_new(cfg.SCREEN_WIDTH, cfg.PANEL_HEIGHT)
