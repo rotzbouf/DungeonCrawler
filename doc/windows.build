@@ -1,0 +1,15 @@
+To run the code for testing (from inside the DungeonCrawler directory)
+[path_to_python]\python.exe dungeon.py
+
+Install Python 32bit:
+python-2.7.16.msi
+
+Install PIP (go inside the deps folder):
+[path_to_python]\python get_pip.py
+
+Install pyInstaller:
+[path_to_python]\Scripts\pip.exe install pyInstaller
+
+Build EXE (from inside the project folder):
+[path_to_python]\Scripts\pyinstaller -F dungeon.py
+   - exe is in folder dist
