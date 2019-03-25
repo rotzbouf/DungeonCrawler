@@ -3,13 +3,12 @@
 import libtcodpy as libtcod
 import math, textwrap, shelve 
  
-#actual size of the window
+#screen & map sizes
 SCREEN_WIDTH = 80
 SCREEN_HEIGHT = 50
- 
-#size of the map
 MAP_WIDTH = 80
 MAP_HEIGHT = 43
+LIMIT_FPS = 20  #20 frames-per-second maximum
  
 #sizes and coordinates relevant for the GUI
 BAR_WIDTH = 20
@@ -40,29 +39,19 @@ FIREBALL_DAMAGE = 25
 LEVEL_UP_BASE = 200
 LEVEL_UP_FACTOR = 150
  
- 
 FOV_ALGO = 0  #default FOV algorithm
 FOV_LIGHT_WALLS = True  #light walls or not
-TORCH_RADIUS = 10
- 
-LIMIT_FPS = 20  #20 frames-per-second maximum
- 
+TORCH_RADIUS = 10 
  
 color_dark_wall = libtcod.Color(0, 0, 100)
 color_light_wall = libtcod.Color(130, 110, 50)
 color_dark_ground = libtcod.Color(50, 50, 150)
 color_light_ground = libtcod.Color(200, 180, 50)
  
- 
 class Tile:
-    #a tile of the map and its properties
     def __init__(self, blocked, block_sight = None):
         self.blocked = blocked
- 
-        #all tiles start unexplored
         self.explored = False
- 
-        #by default, if a tile is blocked, it also blocks sight
         if block_sight is None: block_sight = blocked
         self.block_sight = block_sight
  
@@ -116,7 +105,6 @@ class Object:
             self.item.owner = self
  
     def move(self, dx, dy):
-        #move by the given amount, if the destination is not blocked
         if not is_blocked(self.x + dx, self.y + dy):
             self.x += dx
             self.y += dy
@@ -126,7 +114,6 @@ class Object:
         dx = target_x - self.x
         dy = target_y - self.y
         distance = math.sqrt(dx ** 2 + dy ** 2)
- 
         #normalize it to length 1 (preserving direction), then round it and
         #convert to integer so the movement is restricted to the map grid
         dx = int(round(dx / distance))
@@ -134,17 +121,14 @@ class Object:
         self.move(dx, dy)
  
     def distance_to(self, other):
-        #return the distance to another object
         dx = other.x - self.x
         dy = other.y - self.y
         return math.sqrt(dx ** 2 + dy ** 2)
  
     def distance(self, x, y):
-        #return the distance to some coordinates
         return math.sqrt((x - self.x) ** 2 + (y - self.y) ** 2)
  
     def send_to_back(self):
-        #make this object be drawn first, so all others appear above it if they're in the same tile.
         global objects
         objects.remove(self)
         objects.insert(0, self)
@@ -158,7 +142,6 @@ class Object:
             libtcod.console_put_char(con, self.x, self.y, self.char, libtcod.BKGND_NONE)
  
     def clear(self):
-        #erase the character that represents this object
         libtcod.console_put_char(con, self.x, self.y, ' ', libtcod.BKGND_NONE)
  
  
@@ -344,20 +327,15 @@ def get_all_equipped(obj):  #returns a list of equipped items
  
  
 def is_blocked(x, y):
-    #first test the map tile
     if map[x][y].blocked:
         return True
- 
-    #now check for any blocking objects
     for object in objects:
         if object.blocks and object.x == x and object.y == y:
             return True
- 
     return False
  
 def create_room(room):
     global map
-    #go through the tiles in the rectangle and make them passable
     for x in range(room.x1 + 1, room.x2):
         for y in range(room.y1 + 1, room.y2):
             map[x][y].blocked = False
@@ -365,14 +343,12 @@ def create_room(room):
  
 def create_h_tunnel(x1, x2, y):
     global map
-    #horizontal tunnel. min() and max() are used in case x1>x2
     for x in range(min(x1, x2), max(x1, x2) + 1):
         map[x][y].blocked = False
         map[x][y].block_sight = False
  
 def create_v_tunnel(y1, y2, x):
     global map
-    #vertical tunnel
     for y in range(min(y1, y2), max(y1, y2) + 1):
         map[x][y].blocked = False
         map[x][y].block_sight = False
