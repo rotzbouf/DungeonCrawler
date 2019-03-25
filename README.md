@@ -1,5 +1,5 @@
-<h1>DungeonCrawler</h1>
-A Roguelike Tech-Demo (work-in-progress)
+<h1>DungeonCrawler v0.1</h1>
+A Roguelike Dungeon Crawler
 </p>
 </p>
 Source of the base code came from:<br>
