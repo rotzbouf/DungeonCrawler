@@ -1,4 +1,4 @@
-<h1>DungeonCrawler v0.1</h1>
+<h1>DungeonCrawler</h1>
 A Roguelike Dungeon Crawler
 </p>
 </p>
