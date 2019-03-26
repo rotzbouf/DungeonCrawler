@@ -1,6 +1,6 @@
-<h1>DungeonCrawler</h1>
-A Roguelike Dungeon Crawler
+<h1>ASCII Dungeon Hero</h1>
+a Nethack clone/inspired
 </p>
 </p>
-Source of the base code came from:<br>
-http://roguebasin.roguelikedevelopment.org/index.php?title=Complete_Roguelike_Tutorial,_using_python%2Blibtcod
+The initial source code is coming from:<br>
+http://www.roguebasin.com/index.php?title=Roguelike_Tutorial,_using_python3%2Btdl
