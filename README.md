@@ -11,9 +11,11 @@ http://rogueliketutorials.com/tdl/1
 <p>
 <p>
 <h3>Linux</h3>
-sudo apt-get install python3-pip<p>
+sudo apt-get install python3 python3-pip<p>
 sudo pip3 install tdl<p>
 <p>
 <p>
 <h3>Windows</h3>
 python-3.7.3.exe (from www.python.org)<p>
+python get-pip.py (install pip)<p>
+pip install tdl (install tdl)<p>
