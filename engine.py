@@ -18,6 +18,10 @@ def main():
     room_min_size = 6
     max_rooms = 30
 
+    fov_algorithm = 'BASIC'
+    fov_light_walls = True
+    fov_radius = 10
+
     colors = {
         'dark_wall': (0, 0, 0),
         'dark_ground': (128, 128, 128),
