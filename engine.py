@@ -23,10 +23,10 @@ def main():
     fov_radius = 10
 
     colors = {
-        'dark_wall': (0, 0, 0),
-        'dark_ground': (128, 128, 128),
-        'light_wall': (130, 110, 50),
-        'light_ground': (200, 180, 50)
+        'dark_wall': (82, 85, 100),
+        'dark_ground': (116, 130, 143),
+        'light_wall': (82, 85, 100),
+        'light_ground': (190, 185, 181)
     }
 
     player = Entity(int(screen_width / 2), int(screen_height / 2), '@', (255, 255, 255))
