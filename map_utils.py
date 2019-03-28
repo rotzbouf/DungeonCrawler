@@ -4,6 +4,7 @@ from components.ai import BasicMonster
 from components.fighter import Fighter
 from components.item import Item
 from entity import Entity
+from game_messages import Message
 from item_functions import cast_confuse, cast_fireball, cast_lightning, heal
 from render_functions import RenderOrder
 
