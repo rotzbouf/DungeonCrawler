@@ -1,4 +1,5 @@
 from components.ai import ConfusedMonster
+
 from game_messages import Message
 
 
@@ -16,6 +17,7 @@ def heal(*args, **kwargs):
         results.append({'consumed': True, 'message': Message('Your wounds start to feel better!', colors.get('green'))})
 
     return results
+
 
 def cast_lightning(*args, **kwargs):
     caster = args[0]
@@ -46,6 +48,7 @@ def cast_lightning(*args, **kwargs):
 
     return results
 
+
 def cast_fireball(*args, **kwargs):
     colors = args[1]
     entities = kwargs.get('entities')
@@ -73,6 +76,7 @@ def cast_fireball(*args, **kwargs):
             results.extend(entity.fighter.take_damage(damage))
 
     return results
+
 
 def cast_confuse(*args, **kwargs):
     colors = args[1]
