@@ -19,3 +19,4 @@ class Level:
             return True
         else:
             return False
+

@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 import tdl
 
 from tcod import image_load
@@ -229,7 +228,8 @@ def play_game(player, entities, game_map, message_log, game_state, root_console,
 
                 if leveled_up:
                     message_log.add_message(Message(
-                        'Your battle skills grow stronger! You reached level {0}'.format(player.level.current_level) + '!',
+                        'Your battle skills grow stronger! You reached level {0}'.format(
+                            player.level.current_level) + '!',
                         constants['colors'].get('yellow')))
                     previous_game_state = game_state
                     game_state = GameStates.LEVEL_UP
@@ -330,5 +330,7 @@ def main():
 
             show_main_menu = True
 
+
 if __name__ == '__main__':
     main()
+
