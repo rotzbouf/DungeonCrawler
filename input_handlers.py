@@ -10,35 +10,47 @@ def handle_keys(user_input, game_state):
             return handle_targeting_keys(user_input)
         elif game_state in (GameStates.SHOW_INVENTORY, GameStates.DROP_INVENTORY):
             return handle_inventory_keys(user_input)
+        elif game_state == GameStates.LEVEL_UP:
+            return handle_level_up_menu(user_input)
+        elif game_state == GameStates.CHARACTER_SCREEN:
+            return handle_character_screen(user_input)
 
     return {}
 
 def handle_player_turn_keys(user_input):
     # Movement keys
     key_char = user_input.char
-    if user_input.key == 'UP' or key_char == 'k':
+    if user_input.key == 'UP' or key_char == 'w':
         return {'move': (0, -1)}
-    elif user_input.key == 'DOWN' or key_char == 'j':
+    elif user_input.key == 'DOWN' or key_char == 'x':
         return {'move': (0, 1)}
-    elif user_input.key == 'LEFT' or key_char == 'h':
+    elif user_input.key == 'LEFT' or key_char == 'a':
         return {'move': (-1, 0)}
-    elif user_input.key == 'RIGHT' or key_char == 'l':
+    elif user_input.key == 'RIGHT' or key_char == 'd':
         return {'move': (1, 0)}
-    elif key_char == 'y':
+    elif key_char == 'q':
         return {'move': (-1, -1)}
-    elif key_char == 'u':
+    elif key_char == 'e':
         return {'move': (1, -1)}
-    elif key_char == 'b':
+    elif key_char == 'y':
         return {'move': (-1, 1)}
-    elif key_char == 'n':
+    elif key_char == 'c':
         return {'move': (1, 1)}
+    elif key_char == 's':
+        return {'wait': True}
 
-    if key_char == 'g':
+    if key_char == 'p':
         return {'pickup': True}
     elif key_char == 'i':
         return {'show_inventory': True}
-    elif key_char == 'd':
+    elif key_char == 'l':
         return {'drop_inventory': True}
+
+    elif key_char == '<':
+        return {'take_stairs': True}
+
+    elif key_char == 'u':
+        return {'show_character_screen': True}
 
     if user_input.key == 'ENTER' and user_input.alt:
         # Alt+Enter: toggle full screen
@@ -100,6 +112,25 @@ def handle_main_menu(user_input):
             return {'load_game': True}
         elif key_char == 'c' or user_input.key == 'ESCAPE':
             return {'exit': True}
+
+    return {}
+
+def handle_level_up_menu(user_input):
+    if user_input:
+        key_char = user_input.char
+
+        if key_char == 'a':
+            return {'level_up': 'hp'}
+        elif key_char == 'b':
+            return {'level_up': 'str'}
+        elif key_char == 'c':
+            return {'level_up': 'def'}
+
+    return {}
+
+def handle_character_screen(user_input):
+    if user_input.key == 'ESCAPE':
+        return {'exit': True}
 
     return {}
 
