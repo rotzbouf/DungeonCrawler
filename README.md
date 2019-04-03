@@ -10,13 +10,22 @@ http://rogueliketutorials.com/tdl/1
 <br>
 <p>
 <p>
-<h3>Linux</h3>
-sudo apt-get install python3 python3-pip<p>
-sudo pip3 install tdl<p>
+<h3>Run code on Linux (Debian)</h3>
+sudo apt install g++ python3-dev python3-pip python3-numpy libsdl2-dev libffi-dev libomp5<p>
+python3 -m pip install --user tcod tdl<p>
+git clone https://github.com/rotzbouf/DungeonCrawler ASCII_Hero
+<p>
+<h5>Build on Linux</h5>
 <p>
 <p>
-<h3>Windows</h3>
-python-3.7.3.exe (from www.python.org)<p>
-vc_redist.x86.exe (from https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)<p>
-python get-pip.py (install pip)<p>
-pip install tdl (install tdl)<p>
+<h3>Run code on Windows</h3>
+First install a recent version of Python 3. Make sure Python is added to the Windows PATH.<p>
+https://www.python.org/downloads/<p>
+<p>
+Install the latest Microsoft Visual C++ Redistributable.<p>
+https://support.microsoft.com/en-ca/help/2977003/the-latest-supported-visual-c-downloads<p>
+<p>
+py -m pip install tcod<p>
+<p>
+#python get-pip.py (install pip)<p>
+#pip install tdl (install tdl)<p>
