@@ -16,7 +16,12 @@ python3 -m pip install --user tcod tdl<p>
 git clone https://github.com/rotzbouf/DungeonCrawler ASCII_Hero
 <p>
 <h5>Build on Linux</h5>
-<p>
+sudo python3 -m pip install pyInstaller<p>
+pyinstaller -F engine.py<p>
+cp *.png dist/<p>
+mv dist/engine dist/ASCII_Hero<p>
+cd dist<p>
+./ASCII_Hero<p>
 <p>
 <h3>Run code on Windows</h3>
 First install a recent version of Python 3. Make sure Python is added to the Windows PATH.<p>
@@ -25,7 +30,18 @@ https://www.python.org/downloads/<p>
 Install the latest Microsoft Visual C++ Redistributable.<p>
 https://support.microsoft.com/en-ca/help/2977003/the-latest-supported-visual-c-downloads<p>
 <p>
-py -m pip install tcod<p>
+py -m pip install tcod tdl<p>
+clone git repo<p>
 <p>
-#python get-pip.py (install pip)<p>
-#pip install tdl (install tdl)<p>
+<h5>Build on Windows</h5>
+pip install pyInstaller<p>
+pyinstaller -F engine.py<p>
+cp *.png dist/<p>
+mv dist/engine dist/ASCII_Hero<p>
+cd dist<p>
+./ASCII_Hero<p>
+
+
+
+
+
